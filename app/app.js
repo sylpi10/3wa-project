@@ -11,6 +11,16 @@ let app = {
     // ----------------------------------------------------------------------------------------------------------------
     mvc: {
         router: null,
+        dispatchRoutes: (controller) => {
+             // fetch partial view's url 
+        fetch(controller.viewPath).then(res => res.text())
+        // update main with content 
+        .then((htmlString) => {
+            document.querySelector('main').innerHTML = htmlString 
+            // executeAfterDomUpdate
+            controller.executeAfterDomUpdate();
+        });
+        }
     }
 };
 

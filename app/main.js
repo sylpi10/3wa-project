@@ -1,4 +1,8 @@
 // import Router from "vanilla-router";
+import HomeController from '../controllers/HomeController.js';
+import LoginController from '../controllers/LoginController.js';
+import SearchController from '../controllers/SearchController.js';
+import AboutController from '../controllers/AboutController.js';
 import app from './app.js';
 import config from './config.js';
 
@@ -17,18 +21,23 @@ function initializeRouter() {
 
     app.mvc.router.add('home', function () {
         console.log('Home page');
+        app.mvc.dispatchRoutes(new HomeController())
     });
     
     app.mvc.router.add('search', function () {
         console.log('Hello search');
+        app.mvc.dispatchRoutes(new SearchController());
     });
     
     app.mvc.router.add('about', function () {
         console.log('About Page');
+        app.mvc.dispatchRoutes(new AboutController());
     });
 
     app.mvc.router.add('login', function () {
         console.log('Login Page');
+        app.mvc.dispatchRoutes(new LoginController());
+
     });
 
     app.mvc.router.addUriListener();
