@@ -1,4 +1,5 @@
-// import Router from "vanilla-router";
+import Router from "vanilla-router";
+
 import HomeController from '../controllers/HomeController.js';
 import LoginController from '../controllers/LoginController.js';
 import SearchController from '../controllers/SearchController.js';
@@ -46,8 +47,13 @@ function initializeRouter() {
 // CODE PRINCIPAL
 // --------------------------------------------------------------------------------------------------------------------
 
+// const sayHello = ({firstname = "visiteur", lastname = ""}) => {
+//     console.log(`hello ${firstname} ${lastname} !!!`);
+// };
+
 document.addEventListener('DOMContentLoaded', function () {
     // Initialisation du routeur.
     initializeRouter();
+    // sayHello({firstname: "John", lastname: "Doe"});
 });
 
