@@ -1,4 +1,5 @@
 import Router from "vanilla-router";
+import firebase from "firebase/app";
 
 import HomeController from '../controllers/HomeController.js';
 import LoginController from '../controllers/LoginController.js';
@@ -13,7 +14,7 @@ import "../static/css/main.css";
 // INITIALISATION DE L'APPLICATION
 // --------------------------------------------------------------------------------------------------------------------
 
-function initializeRouter() {
+function initializeRouter(isLoggedIn = false) {
     // Instancier ici le Vanilla Router dans l'objet "app.mvc.router"
     app.mvc.router = new Router({
         mode: 'hash',
@@ -34,28 +35,39 @@ function initializeRouter() {
         app.mvc.dispatchRoutes(new AboutController());
     });
 
-    app.mvc.router.add('login', function () {
-        app.mvc.dispatchRoutes(new LoginController());
-
-    });
-
+    if (isLoggedIn) {
+		app.mvc.router.add("search", function () {
+			app.mvc.dispatchRoutes(new SearchController());
+		});
+		app.mvc.router.add("logout", app.auth.logout);
+	} else {
+		app.mvc.router.add("login", function () {
+			app.mvc.dispatchRoutes(new LoginController());
+		});
+	}
+    
     app.mvc.router.addUriListener();
-    app.mvc.router.navigateTo('home');
+    app.mvc.router.navigateTo("home");
 }
- 
  
 
 // --------------------------------------------------------------------------------------------------------------------
 // CODE PRINCIPAL
 // --------------------------------------------------------------------------------------------------------------------
 
-// const sayHello = ({firstname = "visiteur", lastname = ""}) => {
-//     console.log(`hello ${firstname} ${lastname} !!!`);
-// };
 
 document.addEventListener('DOMContentLoaded', function () {
     // Initialisation du routeur.
-    initializeRouter();
-    // sayHello({firstname: "John", lastname: "Doe"});
+    firebase.initializeApp(config.firebase);
+
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            app.dom.refreshMainMenu(true);
+            initializeRouter(true);
+        }else {
+            app.dom.refreshMainMenu(false);
+            initializeRouter();
+        }
+    })
 });
 
