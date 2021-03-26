@@ -42,7 +42,7 @@ class SearchController{
              );
              document.querySelector("#searchResults").innerHTML = `
                 <h3> ${records.length} résultats sur ${nhits} au total </h3>
-                <ul class="events-list row"> ${htmlRecords.join('')} </ul>
+                <ul class="row"> ${htmlRecords.join('')} </ul>
              `;
         });
 

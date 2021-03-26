@@ -4,7 +4,7 @@ html {
 }
 
 html {
-  background: linear-gradient(to right, #ed4264, #ffedbc);
+  background: linear-gradient(to right, #ccbd7cd7, #ffdabc);
 }
 
 body {
@@ -20,7 +20,9 @@ i {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
 }
-
+ul {
+  list-style-type: none;
+}
 .event-list .event-image {
   height: 350px;
   object-fit: cover;

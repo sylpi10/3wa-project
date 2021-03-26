@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack build --mode=production",
-    "build:dev": "webpack build --mode=development"
+    "build:dev": "webpack build --mode=development",
+    "start": "webpack serve --mode=development",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "sp",
   "license": "ISC",
@@ -18,11 +19,13 @@
     "@babel/preset-env": "^7.13.12",
     "babel-loader": "^8.2.2",
     "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^8.1.0",
     "css-loader": "^5.2.0",
     "html-webpack-plugin": "^5.3.1",
     "style-loader": "^2.0.0",
     "webpack": "^5.28.0",
-    "webpack-cli": "^4.5.0"
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^3.11.2"
   },
   "babel": {
     "presets": [
