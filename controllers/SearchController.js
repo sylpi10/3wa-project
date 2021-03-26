@@ -18,9 +18,7 @@ class SearchController{
     }
 
     // func callback in addEventListener
-    // arrow fn allows to keep the this from parent context 
-    // (this = controller instance, in method executeAfterDomUpdate) 
-    onSubmitForm = (e) => {
+    onSubmitForm(e) {
         e.preventDefault();
         // console.log(this);
         // get values from form 
@@ -55,7 +53,7 @@ class SearchController{
         this.fillYears();
         // watch submit 
         document.querySelector('#searchForm')
-        .addEventListener("submit", this.onSubmitForm)
+        .addEventListener("submit", this.onSubmitForm.bind(this));
     }
 }
 
