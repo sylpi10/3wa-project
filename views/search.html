@@ -1,1 +1,34 @@
-<h1>search</h1>
+<h1>Recherche d'évènements</h1>
+<hr>
+
+<div class="row">
+    <div class="col-12 col-md-8 col-lg-5 offset-md-2 offset-lg-3">
+            <form id="searchForm">
+                <div class="mb-3">
+                    <label for="q">Terme de recherche</label>
+                    <input type="text" name="" id="q" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label for="year">Année</label>
+                    <select name="" class="form-select" id="date_start">
+                        <!-- <option value="">--Choisir--</option> -->
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="sort">Order des résultats</label>
+                    <select name="" class="form-select" id="sort">
+                        <option value="date_start">Asc</option>
+                        <option value="-date_start">Dsc</option>
+                        <option value="title">A à Z</option>
+                        <option value="-title">Z à A</option>
+                    </select>
+                </div>
+                <button class="btn btn-info" type="submit">Check</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="searchResults">
+        
+    </div>
+
