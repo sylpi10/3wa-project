@@ -7,6 +7,8 @@ import AboutController from '../controllers/AboutController.js';
 import app from './app.js';
 import config from './config.js';
 
+import "../static/css/main.css";
+
 // --------------------------------------------------------------------------------------------------------------------
 // INITIALISATION DE L'APPLICATION
 // --------------------------------------------------------------------------------------------------------------------
